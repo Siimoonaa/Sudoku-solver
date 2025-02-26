@@ -44,7 +44,15 @@ int main() {
             {0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0},
     };
-    bool result = validator(testMatrix,1,4,5);
-    cout<<result;
+//    bool result = validator(testMatrix,1,4,5);
+//    cout<<result;
+
+    //printing the solution
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+                cout<<testMatrix[i][j]<<' ';
+        }
+        cout<<'\n';
+    }
     return 0;
 }
