@@ -42,13 +42,13 @@ bool solver(vector<vector<int>> &matrix, int row, int column) {
 
     //checking to see if we got to the end of the row
     if (column == n) {
-        column = 0;
         row++;
+        column = 0;
     }
 
     //checking if the cell has already a number in it
-    if (matrix[row][column] != 0)
-        solver(matrix, row, column + 1);
+    if (matrix[row][column])
+        return solver(matrix, row, column + 1);
 
     for (int i = 1; i <= 9; ++i) {
         if (validator(matrix, row, column, i)) {
@@ -64,15 +64,15 @@ bool solver(vector<vector<int>> &matrix, int row, int column) {
 
 int main() {
     vector<vector<int>> testMatrix = {
-            {7, 0, 9, 0, 5, 0, 1, 0, 3},
-            {0, 4, 0, 1, 0, 6, 0, 9, 0},
-            {1, 0, 2, 0, 9, 0, 0, 6, 8},
-            {5, 0, 4, 0, 0, 1, 0, 0, 2},
-            {0, 1, 0, 6, 0, 4, 0, 3, 0},
-            {6, 0, 0, 5, 0, 9, 0, 1, 0},
-            {0, 8, 0, 0, 1, 0, 0, 5, 0},
-            {0, 7, 0, 3, 0, 5, 0, 0, 6},
-            {0, 0, 0, 9, 6, 0, 3, 0, 1}
+            {7, 0, 0, 0, 5, 0, 1, 0, 3},
+            {0, 4, 0, 1, 0, 0, 0, 9, 0},
+            {0, 0, 2, 0, 9, 0, 0, 6, 8},
+            {0, 0, 4, 0, 0, 0, 0, 0, 2},
+            {0, 0, 0, 0, 0, 4, 0, 3, 0},
+            {6, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 8, 0, 0, 1, 0, 0, 0, 0},
+            {0, 7, 0, 3, 0, 5, 0, 0, 0},
+            {0, 0, 0, 9, 6, 0, 0, 0, 1}
     };
 
     //calling the function that solves the Sudoku
